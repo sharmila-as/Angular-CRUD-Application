@@ -16,21 +16,13 @@ export class CreateComponent {
   
   form!: FormGroup;
       
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
+  
   constructor(
     public postService: PostService,
     private router: Router
   ) { }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+  
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required]),
@@ -38,20 +30,12 @@ export class CreateComponent {
     });
   }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+  
   get f(){
     return this.form.controls;
   }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+  
   submit(){
     console.log(this.form.value);
     this.postService.create(this.form.value).subscribe((res:any) => {
